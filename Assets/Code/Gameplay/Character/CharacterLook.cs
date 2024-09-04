@@ -12,7 +12,7 @@ namespace Code.Gameplay.Character
 
       private float _xLook;
       private float _yLook;
-      float _xRotation;
+      private float _xRotation;
 
       private IInputService _inputService;
 
