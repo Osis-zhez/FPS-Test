@@ -11,7 +11,7 @@ namespace Code.Gameplay.GameSystems.ObjectPools
 
       public ObjectPoolBulletSystem()
       {
-         _bulletPrefab = Resources.Load<GameObject>("Weapons/Bullet");
+         _bulletPrefab = Resources.Load<GameObject>("Gameplay/Weapons/Bullet");
 
          _bulletPool = new ObjectPool<Bullet>(
             CreatePooledObject,
