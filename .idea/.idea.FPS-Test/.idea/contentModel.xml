@@ -7,7 +7,7 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Code" t="Include">
+        <e p="CodeBase" t="Include">
           <e p="Gameplay" t="Include">
             <e p="Character" t="Include">
               <e p="CharacterEntity.cs" t="Include" />
@@ -30,13 +30,6 @@
               <e p="BootstrapInstaller.cs" t="Include" />
               <e p="SceneInstaller.cs" t="Include" />
             </e>
-            <e p="Network" t="Include">
-              <e p="FusionStarter.cs" t="Include" />
-              <e p="NetworkCallbacksReceiver.cs" t="Include" />
-              <e p="NetworkInputData.cs" t="Include" />
-              <e p="NetworkInputPopulator.cs" t="Include" />
-              <e p="PlayerJoinManager.cs" t="Include" />
-            </e>
             <e p="Services" t="Include">
               <e p="Input" t="Include">
                 <e p="IInputService.cs" t="Include" />
@@ -44,6 +37,13 @@
                 <e p="StandaloneInputService.cs" t="Include" />
               </e>
             </e>
+          </e>
+          <e p="Network" t="Include">
+            <e p="FusionStarter.cs" t="Include" />
+            <e p="NetworkCallbacksReceiver.cs" t="Include" />
+            <e p="NetworkInputData.cs" t="Include" />
+            <e p="NetworkInputPopulator.cs" t="Include" />
+            <e p="PlayerJoinManager.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
             <e p="MainMenu.cs" t="Include" />

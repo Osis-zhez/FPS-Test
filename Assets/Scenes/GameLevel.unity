@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootPoint: {fileID: 155696583}
-  _bulletSpeed: 100000
+  _bulletSpeed: 50
 --- !u!1 &323082348
 GameObject:
   m_ObjectHideFlags: 0
