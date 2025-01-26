@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Curtain: {fileID: 8493594777054932859}
+  AssetDownloadBar: {fileID: 0}
 --- !u!114 &2591054546575247906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,7 +608,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 55
 --- !u!1 &8493594777054932861
 GameObject:
   m_ObjectHideFlags: 0
