@@ -1205,6 +1205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsSceneTakeOverEnabled: 1
   LogSceneLoadErrors: 1
+  AddressableScenesLabel: FusionScenes
 --- !u!114 &1437819220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1445,7 +1446,7 @@ GameObject:
   - component: {fileID: 1697805656}
   - component: {fileID: 1697805655}
   m_Layer: 11
-  m_Name: View
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

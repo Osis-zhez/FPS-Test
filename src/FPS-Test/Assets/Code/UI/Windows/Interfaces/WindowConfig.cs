@@ -2,7 +2,7 @@
 using Code.Infrastructure.Services.Window;
 using UnityEngine;
 
-namespace CodeBase.UI.Windows.Interfaces
+namespace Code.UI.Windows.Interfaces
 {
    [Serializable]
    public class WindowConfig

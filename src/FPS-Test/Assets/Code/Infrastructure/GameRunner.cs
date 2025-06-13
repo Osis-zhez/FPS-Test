@@ -6,27 +6,27 @@ using Zenject;
 
 namespace Code.Infrastructure
 {
-    public class GameRunner : MonoBehaviour
+  public class GameRunner : MonoBehaviour
+  {
+    private ProjectContext _projectContext;
+
+    private void Awake()
     {
-        private ProjectContext _projectContext;
-        
-        private void Awake()
-        {
-            var bootstrapper = FindObjectOfType<BootstrapInstaller>();
-        
-            if (bootstrapper != null) return;
-            
-            _projectContext = ProjectContext.Instance;
-        
-            InitializeProjectContext();
-            
-            InitializeBootstrapState();
-        }
+      var bootstrapper = FindObjectOfType<BootstrapInstaller>();
 
-        private void InitializeProjectContext() => 
-            _projectContext.EnsureIsInitialized();
+      if (bootstrapper != null) return;
 
-        private void InitializeBootstrapState() => 
-            _projectContext.Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+      _projectContext = ProjectContext.Instance;
+
+      InitializeProjectContext();
+
+      InitializeBootstrapState();
     }
+
+    private void InitializeProjectContext() =>
+      _projectContext.EnsureIsInitialized();
+
+    private void InitializeBootstrapState() =>
+      _projectContext.Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
+  }
 }

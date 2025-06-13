@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Extensions
+﻿namespace Code.Extensions
 {
   public static class NumericExtensions
   {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CodeBase.Data
+namespace Code.Data
 {
   [Serializable]
   public class KillData

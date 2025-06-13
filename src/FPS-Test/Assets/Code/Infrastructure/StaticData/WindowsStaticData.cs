@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using CodeBase.UI.Windows.Interfaces;
+using Code.UI.Windows.Interfaces;
 using UnityEngine;
 
 namespace Code.Infrastructure.StaticData

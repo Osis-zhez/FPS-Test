@@ -1,8 +1,8 @@
 using System;
+using Code.Data.ResourcesLootData;
 using Code.Infrastructure.Services.StaticData;
-using CodeBase.Data.ResourcesLootData;
 
-namespace CodeBase.Data
+namespace Code.Data
 {
    [Serializable]
    public class PlayerProgress

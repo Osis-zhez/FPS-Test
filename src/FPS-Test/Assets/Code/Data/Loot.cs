@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodeBase.Data
+namespace Code.Data
 {
   [Serializable]
   public class Loot

@@ -4,7 +4,7 @@ using Code.Infrastructure.Services;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace CodeBase.Data
+namespace Code.Data
 {
   
   public static class DataExtensions

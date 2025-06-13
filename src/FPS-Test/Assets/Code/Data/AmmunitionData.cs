@@ -2,7 +2,7 @@
 using Code.Infrastructure.Services.StaticData;
 using Code.Infrastructure.StaticData;
 
-namespace CodeBase.Data
+namespace Code.Data
 {
   [Serializable]
   public class AmmunitionData

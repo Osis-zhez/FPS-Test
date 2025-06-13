@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CodeBase.Extensions
+namespace Code.Extensions
 {
   public static class FunctionalExtensions
   {

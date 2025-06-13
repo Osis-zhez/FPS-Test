@@ -3,7 +3,7 @@ using Code.Infrastructure.Services.StaticData;
 using Code.Infrastructure.StaticData;
 using UnityEngine;
 
-namespace CodeBase.Data.ResourcesLootData
+namespace Code.Data.ResourcesLootData
 {
   [Serializable]
   public class ResourceData

@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Data.ResourcesLootData
+﻿namespace Code.Data.ResourcesLootData
 {
   public class SparePartsData
   {

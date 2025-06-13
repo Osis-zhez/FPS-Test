@@ -1,10 +1,10 @@
+using Code.Data;
 using Code.Infrastructure.AssetManagement;
 using Code.Infrastructure.Services.Curtain;
 using Code.Infrastructure.Services.PersistentProgress;
 using Code.Infrastructure.Services.SaveLoad;
 using Code.Infrastructure.Services.StaticData;
 using Code.Infrastructure.States.GameStates;
-using CodeBase.Data;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 

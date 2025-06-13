@@ -1,7 +1,7 @@
 ﻿using System;
+using Code.Data;
 using Code.Infrastructure.Services.PersistentProgress;
 using Code.Infrastructure.Services.Window;
-using CodeBase.Data;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
