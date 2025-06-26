@@ -12,12 +12,10 @@ namespace Code.Infrastructure.Contexts
       List<ISavedProgress> ProgressWriters { get; }
       List<IInitialize> Initializes { get; }
       List<IUpdatable> Updatables { get; }
-      List<IGameStart> Starters { get; }
       List<IGameSystem> GameSystems { get; }
       void Tick();
       void CleanUpMonobehKernel();
       void CleanUp();
       void RegisterReflection<TSystem>(TSystem system);
-      void Start();
    }
 }

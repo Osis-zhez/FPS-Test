@@ -1,4 +1,4 @@
-﻿namespace Code.Infrastructure.GameIDs
+﻿namespace Code.Gameplay.GameIDs
 {
    public enum ZombieType
    {

@@ -13,8 +13,6 @@ namespace Code.Infrastructure.Contexts
       public List<IGameSystem> GameSystems { get; } = new List<IGameSystem>();
       public List<IInitialize> Initializes { get; } = new List<IInitialize>();
       public List<IDisposable> Disposables{ get; } = new List<IDisposable>();
-
-      public List<IGameStart> Starters { get; } = new List<IGameStart>();
       public List<IUpdatable> Updatables { get; } = new List<IUpdatable>();
 
       public void CleanUp()
@@ -29,14 +27,6 @@ namespace Code.Infrastructure.Contexts
       public void CleanUpMonobehKernel()
       {
          Updatables.Clear();
-         Starters.Clear();
-      }
-
-      public void Start()
-      {
-         if (Starters.Count > 0)
-            foreach (IGameStart starter in Starters)
-               starter.GameStart();
       }
 
       public void Tick()
@@ -50,9 +40,6 @@ namespace Code.Infrastructure.Contexts
       {
          if (system is IInitialize)
             Initializes.Add(system as IInitialize);
-         
-         if (system is IGameStart)
-            Starters.Add(system as IGameStart);
 
          if (system is IUpdatable)
             Updatables.Add(system as IUpdatable);

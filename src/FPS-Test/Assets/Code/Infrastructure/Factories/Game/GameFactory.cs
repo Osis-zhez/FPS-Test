@@ -114,9 +114,6 @@ namespace Code.Infrastructure.Factories.Game
          
          foreach (IInitialize initialize in gameObject.GetComponentsInChildren<IInitialize>())
             _infrastructureContext.Initializes.Add(initialize);
-         
-         foreach (IGameStart starter in gameObject.GetComponentsInChildren<IGameStart>())
-            _infrastructureContext.Starters.Add(starter);
       }
 
       private void RegisterReflectionForSystem<TSystem>(TSystem system)

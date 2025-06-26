@@ -1,6 +1,6 @@
 using Code.Infrastructure.Factories.Systems;
 
-namespace Code.Features.Battle
+namespace Code.Gameplay.Features.Battle
 {
     public class BattleFeature : Feature
     {

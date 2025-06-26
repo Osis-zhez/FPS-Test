@@ -1,5 +1,5 @@
 ﻿using System;
-using Code.Infrastructure.GameIDs;
+using Code.Gameplay.GameIDs;
 using Code.Infrastructure.Services.Audio;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;

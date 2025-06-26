@@ -1,4 +1,4 @@
-﻿using Code.Features.Battle;
+﻿using Code.Gameplay.Features.Battle;
 using Code.Infrastructure.Contexts;
 using Code.Infrastructure.Factories;
 using Code.Infrastructure.Factories.Game;
