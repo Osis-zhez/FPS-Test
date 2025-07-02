@@ -12,12 +12,6 @@ namespace Code.Data
     
     public AmmunitionData(IStaticDataService staticDataService)
     {
-      if (staticDataService == null) return;
-      
-      GameGlobalStaticData _globalStaticData = staticDataService.GetGameGlobalData();
-
-      Grenades = _globalStaticData.Granades;
-      HealhPacks = _globalStaticData.HealthPacks;
     }
   }
 }

@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7483830207721327759}
   - component: {fileID: 7128661268048975612}
-  - component: {fileID: -5909459484081672965}
+  - component: {fileID: 7275739944412227601}
+  - component: {fileID: 5623793424745536624}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -47,7 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: -5909459484081672965}
+  - {fileID: 5623793424745536624}
+  - {fileID: 7275739944412227601}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0
@@ -62,7 +64,7 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
---- !u!114 &-5909459484081672965
+--- !u!114 &7275739944412227601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,6 +73,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7005416248197888604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3f50239f78e4f09bf35a605feaa564d, type: 3}
+  m_Script: {fileID: 11500000, guid: c8b50ab619b845ec9a91187459a381bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5623793424745536624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7005416248197888604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88668e0b010b4c259c4a18518d35acdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Curtain: {fileID: 8713324141352661597, guid: 9999f750a9cb62f4e95f2b25c7f6aec2, type: 3}
+  AudioService: {fileID: 1894349560633668280, guid: 821f6fcd5fd0aca41b0b0069950f82fd,
+    type: 3}

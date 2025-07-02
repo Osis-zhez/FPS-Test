@@ -1,59 +1,45 @@
-using Code.Infrastructure.Services.Input.Initializer;
-using Code.Infrastructure.Services.Input.TouchInput;
-using UnityEngine;
-
-namespace Code.Infrastructure.Services.Input
+﻿namespace Code.Infrastructure.Services.Input
 {
-  public class MobileInput : InputBase
-  {
-    private readonly ITouchInputService _touchInput;
-    private InputMode _inputMode;
+   public class MobileInput : IInputService
+   {
+      public float GetVerticalMoveAxis()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public MobileInput(ITouchInputService touchInput)
-    {
-      _touchInput = touchInput;
-    }
+      public float GetHorizontalMoveAxis()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override void Initialize(InputMode inputMode)
-    {
-      _inputMode = inputMode;
-    }
+      public float GetVerticalLookAxis()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override InputMode GetInputMode() => 
-      _inputMode;
+      public float GetHorizontalLookAxis()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override bool IsHudStartWaveBtnUp() => 
-      SimpleInput.GetButtonUp(HudStartWaveBtn);
+      public bool HasMoveInput()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override bool IsHudShoot() => 
-      SimpleInput.GetButton(HudShootBtn);
+      public bool HasShootInput()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override bool IsReloadBtnUp() => 
-      SimpleInput.GetButtonUp(HudReloadBtn);
+      public bool HasLookInput()
+      {
+         throw new System.NotImplementedException();
+      }
 
-    public override bool IsHudJumpBtnUp() => 
-      SimpleInput.GetButtonUp(HudJumpBtn);
-
-    public override Vector2 GetMoveAxis() => 
-      _touchInput.MoveAxis;
-
-    public override Vector2 GetLookAxis() => 
-      _touchInput.LookAxis;
-
-    public override Vector2 GetShootAxis() => 
-      _touchInput.ShootAxis;
-
-    public override bool GetIsLookTouchPressed() => 
-      _touchInput.IsLookTouchPressed;
-
-    public override bool GetIsShootAxisPressed() => 
-      _touchInput.IsShootTouchPressed;
-  }
-
-  public enum ButtonActionId
-  {
-    Unknown = 0,
-    PauseButton = 1,
-    SettingsButton = 2,
-  }
+      public bool IsJumpBtnUp()
+      {
+         throw new System.NotImplementedException();
+      }
+   }
 }

@@ -6,43 +6,53 @@ using Code.Infrastructure.Factories.Systems;
 
 namespace Code.Infrastructure.States.GameStates
 {
-  public class GameLoopState : IState, IUpdatable
+  public class GameLoopState : IState, IUpdatable, ILateUpdatable
   {
-    private readonly GameStateMachine _stateMachine;
-    private readonly InfrastructureContext _infrastructureContext;
-    private readonly IGameFactory _gameFactory;
     private readonly ISystemFactory _systems;
     private BattleFeature _battleFeature;
+    private bool _isExitState;
 
-    public GameLoopState(GameStateMachine stateMachine,
-      InfrastructureContext infrastructureContext,
-      IGameFactory gameFactory,
-      ISystemFactory systems)
+    public GameLoopState(ISystemFactory systems)
     {
-      _stateMachine = stateMachine;
-      _infrastructureContext = infrastructureContext;
-      _gameFactory = gameFactory;
       _systems = systems;
     }
 
     public void Enter()
     {
+      _isExitState = false;
 
       _battleFeature = _systems.Create<BattleFeature>();
       _battleFeature.Initialize();
     }
 
-    public void Tick()
+    void IUpdatable.Tick()
     {
-      foreach (IUpdatable updatable in _infrastructureContext.Updatables) 
-        updatable.Tick();
-      
       _battleFeature.Execute();
       _battleFeature.Cleanup();
     }
 
+    void ILateUpdatable.LateTick()
+    {
+      if (_isExitState)
+        _battleFeature = null;
+    }
+
     public void Exit()
     {
+      _battleFeature.DeactivateReactiveSystems();
+      _battleFeature.ClearReactiveSystems();
+
+      DestructEntities();
+
+      _battleFeature.Cleanup();
+      _battleFeature.TearDown();
+
+      _isExitState = true;
+    }
+
+    private void DestructEntities()
+    {
+      
     }
   }
 }

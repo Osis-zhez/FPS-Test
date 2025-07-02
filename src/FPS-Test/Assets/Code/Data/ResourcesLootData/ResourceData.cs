@@ -17,11 +17,7 @@ namespace Code.Data.ResourcesLootData
 
     public ResourceData(IStaticDataService staticData)
     {
-      Debug.Log("Create ResourceData");
-      GameGlobalStaticData _globalStaticData = staticData.GetGameGlobalData();
-
-      GoldAmount = _globalStaticData.Gold;
-      SparePartsAmount = 0;
+      
     }
   }
 }

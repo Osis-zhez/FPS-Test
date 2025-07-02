@@ -38,9 +38,9 @@ namespace Code.Infrastructure.States.BootStates
       {
          LoadProgressOrInitNew();
          
-         await LoadRemoteAssetBundles();
+         // await LoadRemoteAssetBundles();
          
-         _gameStateMachine.Enter<MetaGameState>();
+         _gameStateMachine.Enter<LoadLevelState, string>("Level 1");
       }
 
       public void Exit()

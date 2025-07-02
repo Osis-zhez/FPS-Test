@@ -86,7 +86,7 @@ namespace Code.Infrastructure.AssetManagement
     
     public async UniTask<TConfig[]> LoadConfigs<TConfig>() where TConfig : ScriptableObject
     {
-      _assetLabelName = "config";
+      _assetLabelName = "configs";
       await LoadScopeConfigsAsync<TConfig>(_assetLabelName, typeof(TConfig));
       List<UniTask<TConfig>> uniTasks = new List<UniTask<TConfig>>();
 

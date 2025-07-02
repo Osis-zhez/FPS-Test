@@ -38,13 +38,8 @@ namespace Code.Infrastructure.Services.Audio
          PlayMusic(AudioId.Level1Music);
       }
 
-      private async void Awake()
-      {
+      private void Awake() => 
          DontDestroyOnLoad(gameObject);
-
-         // foreach (AudioId audio in System.Enum.GetValues(typeof(AudioId)))
-         //    _sfxDict[audio] = await _assets.Load<AudioClip>(audio.ToString());
-      }
 
 
       public void PlaySfx(AudioId audioId)

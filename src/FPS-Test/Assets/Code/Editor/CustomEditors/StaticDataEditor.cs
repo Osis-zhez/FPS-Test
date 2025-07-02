@@ -1,12 +1,11 @@
-﻿using System.Linq;
-using Code.Infrastructure.StaticData;
+﻿using Code.Infrastructure.StaticData;
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using Sirenix.Utilities.Editor;
 using UnityEditor;
 using UnityEngine;
 
-namespace CodeBase.Editor.CustomEditors
+namespace Code.Editor.CustomEditors
 {
    public class StaticDataEditor : OdinMenuEditorWindow
    {

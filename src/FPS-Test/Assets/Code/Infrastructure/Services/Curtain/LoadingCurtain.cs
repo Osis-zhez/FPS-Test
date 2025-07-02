@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Code.Infrastructure.Services.Curtain
 {
-  public class LoadingCurtain : MonoBehaviour, ICoroutineRunner
+  public class LoadingCurtain : MonoBehaviour
   {
     public CanvasGroup Curtain;
     public AssetDownloadBar AssetDownloadBar;
@@ -19,7 +19,6 @@ namespace Code.Infrastructure.Services.Curtain
     public void Construct(IAssetDownloadReporter assetDownloadReporter)
     {
       _assetDownloadReporter = assetDownloadReporter;
-      _assetDownloadReporter.ProgressUpdated += DisplayDownloadProgress;
     }
 
     public void Show()
@@ -31,7 +30,6 @@ namespace Code.Infrastructure.Services.Curtain
     public void Hide()
     {
       StartCoroutine(DoFadeIn());
-      AssetDownloadBar.gameObject.SetActive(false);
     }
     
     private void DisplayDownloadProgress()
@@ -54,7 +52,6 @@ namespace Code.Infrastructure.Services.Curtain
     
     private void OnDestroy()
     {
-      _assetDownloadReporter.ProgressUpdated -= DisplayDownloadProgress;
     }
   }
 }

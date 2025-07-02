@@ -14,7 +14,7 @@ namespace Code.Infrastructure.States.GameStates
 {
   public class MetaGameState : IState, IUpdatable
   {
-    private readonly SceneLoader _sceneLoader;
+    private readonly ISceneLoader _sceneLoader;
     private readonly InfrastructureContext _infrastructureContext;
     private readonly LoadingCurtain _loadingCurtain;
     private readonly IGameFactory _gameFactory;
@@ -22,9 +22,7 @@ namespace Code.Infrastructure.States.GameStates
     private readonly ISaveLoadService _saveLoadService;
     private readonly ICleanUpService _cleanUpService;
 
-    private LevelStaticData _levelData;
-
-    public MetaGameState(SceneLoader sceneLoader,
+    public MetaGameState(ISceneLoader sceneLoader,
       InfrastructureContext infrastructureContext,
       LoadingCurtain loadingCurtain, 
       IGameFactory gameFactory,
@@ -46,8 +44,7 @@ namespace Code.Infrastructure.States.GameStates
       _loadingCurtain.Show();
       _cleanUpService.CleanUp();
       _gameFactory.WarmUp();
-      _levelData = _gameFactory.LoadLevelData(_progressService.Progress.WorldData.PositionOnLevel.Level);
-      _sceneLoader.Load(ScenesAddress.Meta, OnLoaded);
+      _sceneLoader.Load(SceneAddress.Meta, OnLoaded);
     }
 
     public void Exit()
@@ -75,11 +72,7 @@ namespace Code.Infrastructure.States.GameStates
 
     private async UniTask InitSystems()
     {
-      // await _gameFactory.CreateLevelServiceRoot();
-      // await _gameFactory.CreateGameSystem<ZoomMapSystem>();
-      // await _gameFactory.CreateGameSystem<MoveMapSystem>();
-      // await _gameFactory.CreateGameSystem<MapLevelSelectSystem>();
-      // await _gameFactory.CreateGameSystem<UpgradeSystem>(AssetAddress.UpgradeSystem);
+     
     }
 
     private async UniTask InitFeatures()
@@ -92,9 +85,7 @@ namespace Code.Infrastructure.States.GameStates
 
     private async UniTask InitPresenters()
     {
-      // _presenterFactory.CreatePresenter<UpgradeWindowPresenter>();
-      // _presenterFactory.CreatePresenter<TeamWindowPresenter>();
-      // _presenterFactory.CreatePresenter<BusWindowPresenter>();
+    
     }
 
     private void InformProgressReaders()

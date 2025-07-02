@@ -1,13 +1,14 @@
-﻿using Code._FPS_Test_Code.Infrastructure.Services.Input;
+﻿using Code.Infrastructure.Services.Input;
 using Fusion;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Code._FPS_Test_Code.Network
 {
    public class NetworkInputPopulator : MonoBehaviour
    {
-      [SerializeField] private NetworkCallbacksReceiver _callbacksReceiver;
+      [FormerlySerializedAs("_callbacksReceiver")] [SerializeField] private NetworkCallbacksReceiverMonoBeh callbacksReceiverMonoBeh;
 
       private IInputService _inputService;
 
@@ -19,12 +20,12 @@ namespace Code._FPS_Test_Code.Network
 
       private void OnEnable()
       {
-         _callbacksReceiver.OnPopulateInput += PopulateInput;
+         callbacksReceiverMonoBeh.OnPopulateInput += PopulateInput;
       }
 
       private void OnDisable()
       {
-         _callbacksReceiver.OnPopulateInput -= PopulateInput;
+         callbacksReceiverMonoBeh.OnPopulateInput -= PopulateInput;
       }
 
       private void PopulateInput(NetworkRunner runner, NetworkInput input)

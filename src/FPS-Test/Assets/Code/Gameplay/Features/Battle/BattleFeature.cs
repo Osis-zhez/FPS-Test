@@ -6,7 +6,6 @@ namespace Code.Gameplay.Features.Battle
     {
         public BattleFeature(ISystemFactory systems)
         {
-            // Add()
         }
     }
 }

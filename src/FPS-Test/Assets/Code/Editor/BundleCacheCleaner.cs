@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace CodeBase.Editor
+namespace Code.Editor
 {
    public class BundleCacheCleaner
    {

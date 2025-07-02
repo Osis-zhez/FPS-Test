@@ -2,6 +2,7 @@
 using Code.Infrastructure.Contexts;
 using Code.Infrastructure.Factories.Game;
 using Code.Infrastructure.Factories.State;
+using Code.Infrastructure.Factories.Systems;
 using Code.Infrastructure.Factories.Windows;
 using Code.Infrastructure.Services;
 using Code.Infrastructure.Services.Audio;
@@ -9,9 +10,6 @@ using Code.Infrastructure.Services.CleanUp;
 using Code.Infrastructure.Services.Curtain;
 using Code.Infrastructure.Services.GameCommander;
 using Code.Infrastructure.Services.Input;
-using Code.Infrastructure.Services.Input.Cursor;
-using Code.Infrastructure.Services.Input.Initializer;
-using Code.Infrastructure.Services.Input.TouchInput;
 using Code.Infrastructure.Services.LocalDi;
 using Code.Infrastructure.Services.PersistentProgress;
 using Code.Infrastructure.Services.Randomizer;
@@ -26,7 +24,7 @@ using Zenject;
 
 namespace Code.Infrastructure.Installers
 {
-   public class BootstrapInstaller : MonoInstaller
+   public class BootstrapInstaller : MonoInstaller, ICoroutineRunner, IInitializable
    {
       public LoadingCurtain Curtain;
       public AudioService AudioService;
@@ -50,9 +48,11 @@ namespace Code.Infrastructure.Installers
 
       private void BindInfrastructureServices()
       {
+         Container.BindInterfacesTo<BootstrapInstaller>().FromInstance(this).AsSingle();
          Container.Bind<IStaticDataService>().To<StaticDataService>().AsSingle();
          Container.Bind<IWindowService>().To<WindowService>().AsSingle();
          Container.Bind<IRandomService>().To<RandomService>().AsSingle();
+         Container.Bind<ISystemFactory>().To<SystemFactory>().AsSingle();
       }
 
       private void BindAssetManagementServices()
@@ -64,7 +64,6 @@ namespace Code.Infrastructure.Installers
 
       private void BindAdsServices()
       {
-         // Container.Bind<IAdsService>().To<AdsService>().AsSingle();
       }
 
       private void BindCommonServices()
@@ -73,18 +72,14 @@ namespace Code.Infrastructure.Installers
          AudioService audioService = Container.InstantiatePrefabForComponent<AudioService>(AudioService);
          Container.BindInterfacesAndSelfTo<LoadingCurtain>().FromInstance(curtain).AsSingle();
          Container.Bind<IAudioService>().FromInstance(audioService).AsSingle();
-         // Container.Bind<IAnalyticService>().To<AnalyticService>().AsSingle();
          Container.Bind<DIService>().FromInstance(DIService.Instance).AsSingle();
          Container.Bind<ILocalDiService>().FromInstance(LocalDiService.Instance).AsSingle();
-         Container.Bind<SceneLoader>().To<SceneLoader>().AsSingle().NonLazy();
+         Container.Bind<ISceneLoader>().To<SceneLoader>().AsSingle().NonLazy();
       }
 
       private void BindInputService()
       {
-         Container.Bind<ITouchInputService>().To<TouchInputService>().AsSingle();
-         Container.Bind<IInputInitializer>().To<InputInitializer>().AsSingle();
-         Container.Bind<ICursorService>().To<CursorService>().AsSingle();
-         // Container.Bind<IInputService>().To<MobileInput>().AsSingle();
+         Container.Bind<IInputService>().To<StandaloneInputService>().AsSingle();
       }
 
       private void BindProgressServices()
@@ -133,6 +128,11 @@ namespace Code.Infrastructure.Installers
          Container.BindInterfacesAndSelfTo<LoadLevelState>().AsSingle();
          Container.BindInterfacesAndSelfTo<GameLoopState>().AsSingle();
          Container.BindInterfacesAndSelfTo<MetaGameState>().AsSingle();
+      }
+
+      public void Initialize()
+      {
+         Container.Resolve<IGameStateMachine>().Enter<BootstrapState>();
       }
    }
 }

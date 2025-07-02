@@ -1,5 +1,5 @@
 using Code._FPS_Test_Code.Gameplay.GameSystems.ObjectPools;
-using Code._FPS_Test_Code.Infrastructure.Services.Input;
+using Code.Infrastructure.Services.Input;
 using UnityEngine;
 using Zenject;
 

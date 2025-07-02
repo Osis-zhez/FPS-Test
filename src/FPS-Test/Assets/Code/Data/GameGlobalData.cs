@@ -15,8 +15,7 @@ namespace Code.Data
 
       public GameGlobalData(IStaticDataService staticData)
       {
-         GameGlobalStaticData gameData = staticData.GetGameGlobalData();
-         IsTutorialCompelete = gameData.IsTutorialComplete;
+         
       }
    }
 }

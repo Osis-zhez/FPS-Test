@@ -11,7 +11,6 @@ namespace Code.Infrastructure.Services.CleanUp
    public class CleanUpService : ICleanUpService 
    {
       private readonly InfrastructureContext _infrastructureContext;
-      private readonly IInputService _inputService;
       private readonly ILocalDiService _localDi;
       private readonly IAssetProvider _assets;
       private readonly CtxGameContext _ctxGameContext;
@@ -19,7 +18,6 @@ namespace Code.Infrastructure.Services.CleanUp
       private readonly IGameCommanderService _gameCommander;
 
       public CleanUpService(InfrastructureContext infrastructureContext,
-         IInputService inputService,
          ILocalDiService localDi,
          IAssetProvider assets, 
          IGameFactory gameFactory,
@@ -27,7 +25,6 @@ namespace Code.Infrastructure.Services.CleanUp
          CtxGameContext ctxGameContext)
       {
          _infrastructureContext = infrastructureContext;
-         _inputService = inputService;
          _localDi = localDi;
          _assets = assets;
          _gameFactory = gameFactory;
@@ -40,7 +37,6 @@ namespace Code.Infrastructure.Services.CleanUp
          DisposeGame();
          
          _infrastructureContext.CleanUp();
-         _inputService.CleanUp();
          _gameFactory.Cleanup();
          _localDi.CleanUp();
          _assets.Cleanup();

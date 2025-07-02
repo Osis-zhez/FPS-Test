@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace CodeBase.Editor.Tools
+namespace Code.Editor.Tools
 {
    public class RemoveMissingComponents
    {

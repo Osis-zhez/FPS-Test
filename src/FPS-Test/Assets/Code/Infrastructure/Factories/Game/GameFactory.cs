@@ -45,7 +45,6 @@ namespace Code.Infrastructure.Factories.Game
       public void WarmUp()
       {
          _localDi.WarmUp();
-         _assets.Load<GameObject>(AssetAddress.Player);
       }
 
       public async UniTask Cleanup()

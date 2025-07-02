@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using Code.Infrastructure.AssetManagement;
-using Code.Infrastructure.Services.Window;
 using Code.Infrastructure.StaticData;
 using Cysharp.Threading.Tasks;
-using UnityEngine;
 using UnityEngine.ResourceManagement.ResourceLocations;
 
 namespace Code.Infrastructure.Services.StaticData
@@ -11,15 +9,11 @@ namespace Code.Infrastructure.Services.StaticData
    public class StaticDataService : IStaticDataService
    {
       private readonly IAssetProvider _assets;
-      private Dictionary<string, LevelStaticData> _levels = new Dictionary<string, LevelStaticData>();
-
-      private GameGlobalStaticData _gameGlobalStaticData = new GameGlobalStaticData();
-      private AudioStaticData _audioStaticData = new AudioStaticData();
-      private WindowsStaticData _windowsStaticData = new WindowsStaticData();
-      private Dictionary<WindowTypeId, GameObject> _windowPrefabsById = new Dictionary<WindowTypeId, GameObject>();
-
+      private Dictionary<string, LevelStaticData> _levels = new();
+      private GameGlobalStaticData _gameGlobalStaticData;
+      private AudioStaticData _audioStaticData;
+      private WindowsStaticData _windowsStaticData;
       private IList<IResourceLocation> _allConfigLocations;
-      private string _assetLabelName = "config";
 
       public StaticDataService(IAssetProvider assets)
       {
@@ -30,12 +24,6 @@ namespace Code.Infrastructure.Services.StaticData
       {
          foreach (var config in await _assets.LoadConfigs<LevelStaticData>())
             _levels.Add(config.LevelKey, config);
-
-         _gameGlobalStaticData = await _assets.LoadSingleConfig<GameGlobalStaticData>();
-
-         _windowsStaticData = await _assets.LoadSingleConfig<WindowsStaticData>();
-
-         _audioStaticData = await _assets.LoadSingleConfig<AudioStaticData>();
       }
       
 

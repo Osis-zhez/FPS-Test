@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Code.Infrastructure.States
 {
-   public class GameStateMachine : IGameStateMachine, ITickable
+   public class GameStateMachine : IGameStateMachine, ITickable, ILateTickable
    {
       private readonly IStateFactory _stateFactory;
       private Dictionary<Type, IExitableState> _states;
@@ -16,21 +16,17 @@ namespace Code.Infrastructure.States
       {
          _stateFactory = stateFactory;
       }
-
-      public void Initialize()
-      {
-      }
-
-      public void Enter<TState>() where TState : class, IState
-      {
-         IState state = ChangeState<TState>();
-         state.Enter();
-      }
-
+      
       public void Tick()
       {
          if (_activeState is IUpdatable updatableState)
             updatableState.Tick();
+      }
+      
+      void ILateTickable.LateTick()
+      {
+         if (_activeState is ILateUpdatable updatableState)
+            updatableState.LateTick();
       }
 
       public void Enter<TState, TPayload>(TPayload payload) where TState : class, IPayloadedState<TPayload>
@@ -38,6 +34,13 @@ namespace Code.Infrastructure.States
          TState state = ChangeState<TState>();
          state.Enter(payload);
       }
+      
+      public void Enter<TState>() where TState : class, IState
+      {
+         IState state = ChangeState<TState>();
+         state.Enter();
+      }
+
 
       public TState ChangeState<TState>() where TState : class, IExitableState
       {
@@ -51,5 +54,7 @@ namespace Code.Infrastructure.States
 
       private TState GetState<TState>() where TState : class, IExitableState =>
          _states[typeof(TState)] as TState;
+
+      
    }
 }

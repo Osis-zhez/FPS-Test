@@ -14,8 +14,8 @@ namespace Code.Infrastructure.States.GameStates
 {
    public class LoadLevelState : IPayloadedState<string>
    {
-      private readonly GameStateMachine _stateMachine;
-      private readonly SceneLoader _sceneLoader;
+      private readonly IGameStateMachine _stateMachine;
+      private readonly ISceneLoader _sceneLoader;
       private readonly LoadingCurtain _loadingCurtain;
       private readonly IGameFactory _gameFactory;
       private readonly IPersistentProgressService _progressService;
@@ -23,16 +23,14 @@ namespace Code.Infrastructure.States.GameStates
       private readonly InfrastructureContext _infrastructureContext;
 
       private LevelStaticData _levelData;
-      private IGameCommanderService _gameCommander;
 
-      public LoadLevelState(GameStateMachine stateMachine,
-         SceneLoader sceneLoader, 
+      public LoadLevelState(IGameStateMachine stateMachine,
+         ISceneLoader sceneLoader, 
          LoadingCurtain loadingCurtain, 
          IGameFactory gameFactory,
          IPersistentProgressService progressService,
          ICleanUpService cleanUpService,
-         InfrastructureContext infrastructureContext,
-         IGameCommanderService gameCommander)
+         InfrastructureContext infrastructureContext)
       {
          _stateMachine = stateMachine;
          _sceneLoader = sceneLoader;
@@ -41,12 +39,10 @@ namespace Code.Infrastructure.States.GameStates
          _progressService = progressService;
          _cleanUpService = cleanUpService;
          _infrastructureContext = infrastructureContext;
-         _gameCommander = gameCommander;
       }
 
       public void Enter(string levelDataName)
       {
-         Debug.Log("Enter");
          _loadingCurtain.Show();
          _cleanUpService.CleanUp();
          _gameFactory.WarmUp();
@@ -61,9 +57,6 @@ namespace Code.Infrastructure.States.GameStates
 
       private async void OnLoaded()
       {
-         //здесь через async идет отход в другой поток, и сцена живет своей жизнь и старт запускается асинхронно
-         //Сначала создаются игровые системы
-         //Потом поверх них создаются Features, Типа WeaponFeature, таким образом системы обмениются данными через context, а общаются через фичи
          await InitGameSystems();
          await InitGameFeatures();
          await InitGameWorld(_levelData); 
@@ -72,7 +65,6 @@ namespace Code.Infrastructure.States.GameStates
          
          InformProgressReaders();
          InitAllActors();
-
          
          _stateMachine.Enter<GameLoopState>();
       }
@@ -87,9 +79,7 @@ namespace Code.Infrastructure.States.GameStates
 
       private async UniTask InitGameWorld(LevelStaticData levelData)
       {
-         // сделать CommonFeature
-         // сделать PlayerFeature
-         // сделать WeaponEventFeature
+       
       }
 
       private async UniTask InitUI()
