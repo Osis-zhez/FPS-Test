@@ -1,4 +1,5 @@
 using System;
+using Code.Data.InApp;
 using Code.Data.ResourcesLootData;
 using Code.Infrastructure.Services.StaticData;
 
@@ -13,6 +14,7 @@ namespace Code.Data
       public Stats HeroStats;
       public KillData KillData;
       public ResourceData ResourceData;
+      public PurchaseData PurchaseData;
       public AmmunitionData AmmunitionData;
 
       public PlayerProgress()
@@ -28,6 +30,7 @@ namespace Code.Data
          HeroStats = new Stats();
          KillData = new KillData();
          ResourceData = new ResourceData(staticDataService);
+         PurchaseData = new PurchaseData();
          AmmunitionData = new AmmunitionData(staticDataService);
       }
    }

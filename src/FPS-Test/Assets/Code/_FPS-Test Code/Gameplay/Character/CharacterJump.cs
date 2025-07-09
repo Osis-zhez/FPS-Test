@@ -1,3 +1,5 @@
+using Code.Infrastructure.Services.Analytics;
+using Code.Infrastructure.Services.Audio;
 using Code.Infrastructure.Services.Input;
 using UnityEngine;
 using Zenject;
@@ -42,10 +44,10 @@ namespace Code._FPS_Test_Code.Gameplay.Character
          _characterController.Move(_velocity * Time.deltaTime);
       }
 
-      private void Jump() => 
-         _velocity.y = Mathf.Sqrt(_jumpHeight * 2 * - _gravity);
-
       private void CheckIsGrounded() => 
          _isGrounded = Physics.CheckSphere(_groundCheck.position, 0.3f, _groundLayer);
+
+      private void Jump() => 
+         _velocity.y = Mathf.Sqrt(_jumpHeight * 2 * -_gravity);
    }
 }

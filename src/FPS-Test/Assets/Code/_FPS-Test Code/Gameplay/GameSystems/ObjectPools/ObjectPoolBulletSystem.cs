@@ -4,7 +4,7 @@ using UnityEngine.Pool;
 
 namespace Code._FPS_Test_Code.Gameplay.GameSystems.ObjectPools
 {
-   public class ObjectPoolBulletSystem 
+   public class ObjectPoolBulletSystem : IObjectPoolBulletSystem
    {
       private GameObject _bulletPrefab;
       private ObjectPool<Bullet> _bulletPool;

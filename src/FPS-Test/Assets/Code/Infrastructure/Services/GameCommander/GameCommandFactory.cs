@@ -1,4 +1,4 @@
-﻿using Code.Infrastructure.Contexts;
+﻿using Code.Infrastructure.Context;
 using Code.Infrastructure.Services.LocalDi;
 
 namespace Code.Infrastructure.Services.GameCommander

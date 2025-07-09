@@ -11,11 +11,11 @@ namespace Code._FPS_Test_Code.Gameplay.Weapons
       [SerializeField] private float _bulletSpeed;
       
       private IInputService _inputService;
-      private ObjectPoolBulletSystem _objectPoolBulletSystem;
+      private IObjectPoolBulletSystem _objectPoolBulletSystem;
 
       [Inject]
       public void Construct(IInputService inputService,
-         ObjectPoolBulletSystem objectPoolBulletSystem)
+         IObjectPoolBulletSystem objectPoolBulletSystem)
       {
          _inputService = inputService;
          _objectPoolBulletSystem = objectPoolBulletSystem;

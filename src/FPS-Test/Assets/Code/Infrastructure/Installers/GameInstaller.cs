@@ -1,4 +1,7 @@
 ﻿using Code._FPS_Test_Code.Gameplay.GameSystems.ObjectPools;
+using Code.Infrastructure.Factories.Game;
+using Code.Infrastructure.Factories.Windows;
+using Code.Infrastructure.Services.Window;
 using Zenject;
 
 namespace Code.Infrastructure.Installers
@@ -12,7 +15,8 @@ namespace Code.Infrastructure.Installers
 
       private void BindObjectPoolSystems()
       {
-         Container.BindInterfacesAndSelfTo<ObjectPoolBulletSystem>().AsSingle();
+         Container.Bind<IObjectPoolBulletSystem>().To<ObjectPoolBulletSystem>().AsSingle();
       }
+      
    }
 }

@@ -1,4 +1,5 @@
-﻿using Zenject;
+﻿using Code.Infrastructure.Services.DI;
+using Zenject;
 
 namespace Code.Infrastructure.Services.LocalDi
 {

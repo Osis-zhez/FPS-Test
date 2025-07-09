@@ -1,3 +1,4 @@
+using Code.Infrastructure.Services.Warmup;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -13,6 +14,7 @@ namespace Code.Infrastructure.StaticData
         public string Description;
         public int MagazineMax;
         public int ShopCost;
+        public WeaponId WeaponId;
         public AssetReferenceT<GameObject> Prefab;
         public AssetReferenceT<RuntimeAnimatorController> AnimatorController;
         public AssetReferenceT<Sprite> WeaponSprite;

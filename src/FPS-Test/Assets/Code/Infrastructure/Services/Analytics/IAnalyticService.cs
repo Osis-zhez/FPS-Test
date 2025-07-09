@@ -2,6 +2,6 @@
 {
    public interface IAnalyticService : IService
    {
-      void LogEvent(string eventName);
+      void LogMessage(string eventName);
    }
 }

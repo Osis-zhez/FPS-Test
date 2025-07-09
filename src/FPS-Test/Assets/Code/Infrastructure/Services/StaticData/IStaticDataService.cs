@@ -1,4 +1,6 @@
-﻿using Code.Infrastructure.StaticData;
+﻿using System.Collections.Generic;
+using Code.Infrastructure.Services.Warmup;
+using Code.Infrastructure.StaticData;
 using Cysharp.Threading.Tasks;
 
 namespace Code.Infrastructure.Services.StaticData
@@ -10,5 +12,6 @@ namespace Code.Infrastructure.Services.StaticData
     public GameGlobalStaticData GetGameGlobalData();
     AudioStaticData GetAudioConfig();
     WindowsStaticData GetWindowsConfig();
+    IEnumerable<KeyValuePair<WeaponId,WeaponStaticData>> GetWeaponAllData();
   }
 }

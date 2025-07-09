@@ -40,7 +40,7 @@ namespace Code.Infrastructure.States.BootStates
          
          // await LoadRemoteAssetBundles();
          
-         _gameStateMachine.Enter<LoadLevelState, string>("Level 1");
+         _gameStateMachine.Enter<LevelLoadState, string>("Level 1");
       }
 
       public void Exit()
